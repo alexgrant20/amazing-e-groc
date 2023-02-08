@@ -6,7 +6,9 @@
 <body class="min-vh-100 pb-5">
    @include('layout.header')
 
-   @yield('container')
+   <div class="container-fluid p-5">
+      @yield('container')
+   </div>
 
    @include('layout.footer')
 
