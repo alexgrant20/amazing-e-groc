@@ -3,8 +3,9 @@
 
 @include('layout.head')
 
-<body>
+<body class="min-vh-100 pb-5">
    @include('layout.header')
+
    @yield('container')
 
    @include('layout.footer')
