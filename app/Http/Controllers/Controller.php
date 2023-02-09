@@ -2,26 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Crypt;
 
 class Controller extends BaseController
 {
-  use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  protected $account;
+   protected $account;
 
-  public function __construct()
-  {
-    $currentAccountId = session('account_id');
+   public function __construct()
+   {
+      $this->middleware(function ($request, $next) {
 
-    if (!$currentAccountId) return;
+         $auth = $request->session()->get('auth');
+         $account = null;
 
-    $this->account = Account::find($currentAccountId);
-    View::share('site_settings', $this->account);
-  }
+         if ($auth) {
+            $auth = session()->get('auth');
+
+            try {
+               $account = Crypt::decrypt($auth);
+            } catch (\Exception $e) {
+               session()->flush();
+               return to_route('login')->with('error-swal', 'Something gone wrong, please re-authenticated!');
+            }
+         }
+
+         $this->account = $account;
+         view()->share(compact('auth'));
+
+         return $next($request);
+      });
+   }
 }
