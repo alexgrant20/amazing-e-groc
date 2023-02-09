@@ -18,7 +18,7 @@ class Guest
    {
       $hasSessionAuth = session()->has('auth');
 
-      if ($hasSessionAuth) abort(403);
+      if ($hasSessionAuth) return to_route('item.index');
 
       return $next($request);
    }
