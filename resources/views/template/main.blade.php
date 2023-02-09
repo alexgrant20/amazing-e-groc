@@ -13,6 +13,8 @@
    @include('layout.footer')
 
    @include('layout.foot')
+
+   @yield('js-foot');
 </body>
 
 </html>

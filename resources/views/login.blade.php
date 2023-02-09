@@ -26,14 +26,14 @@
             <form method="POST" action="{{ route('authenticate') }}" class="container px-5">
                @csrf
                <div class="form-group mb-3 row">
-                  <label for="email" class="form-label required">Email</label>
+                  <label for="email" class="form-label">Email</label>
                   <div>
                      <input type="text" name="email" id="email" class="form-control" value="{{ old('email') }}">
                   </div>
                </div>
 
                <div class="form-group mb-3 row">
-                  <label for="password" class="form-label required">Password</label>
+                  <label for="password" class="form-label">Password</label>
                   <div>
                      <input type="password" name="password" id="password" class="form-control">
                   </div>
