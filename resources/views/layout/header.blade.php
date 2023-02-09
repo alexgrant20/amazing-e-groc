@@ -20,13 +20,13 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="#">
+                     <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="{{ route('account.edit') }}">
                         {{ __('Profile') }}
                      </a>
                   </li>
                   @if ($account->hasRole('admin'))
                      <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('account.index') }}">
                            {{ __('Account Maintenance') }}
                         </a>
                      </li>

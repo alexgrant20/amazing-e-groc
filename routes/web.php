@@ -46,9 +46,9 @@ Route::middleware('auth')->group(function () {
 
       Route::middleware('role:admin')->group(function () {
          Route::get('/', 'index')->name('index');
-         Route::get('/edit/role', 'editRole')->name('edit-role');
+         Route::get('/edit/role/{account}', 'editRole')->name('edit-role');
          Route::patch('/update/{account}', 'updateRole')->name('update-role');
-         Route::delete('/delete', 'destory')->name('destory');
+         Route::delete('/delete', 'destroy')->name('destroy');
       });
    });
 });

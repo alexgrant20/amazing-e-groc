@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
    public function authorize()
    {
@@ -14,8 +14,7 @@ class LoginRequest extends FormRequest
    public function rules()
    {
       return [
-         'email' => 'required|email',
-         'password' => 'required|string',
+         'role' => 'required|exists:role,role_id',
       ];
    }
 }
