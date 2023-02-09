@@ -3,11 +3,13 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
+Route::post('/setLanguage', function (Request $request) {
 
-Route::get('/setLanguage/{locale}', function ($locale) {
+   $locale = $request->input('locale');
    if (!in_array($locale, ['en', 'id'])) {
       abort(400);
    }
@@ -15,7 +17,8 @@ Route::get('/setLanguage/{locale}', function ($locale) {
    session()->put('locale', $locale);
 
    return back();
-});
+})->name('change-language');
+
 
 Route::group(['middleware' => 'language'], function () {
    Route::get('/', function () {

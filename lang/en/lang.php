@@ -19,5 +19,11 @@ return [
    'role' => 'Role',
    'save' => 'Save',
    'login_message' => 'Already has an account? Click here to login',
-   'register_message' => "Doesn't have an account? Click here to register"
+   'register_message' => "Doesn't have an account? Click here to register",
+   'delete' => 'Delete',
+   'checkout' => 'Checkout',
+   'in_cart' => 'Already In Cart',
+   'buy_now' => 'Buy Now',
+   'id' => "Indonesian",
+   'eng' => "English",
 ];

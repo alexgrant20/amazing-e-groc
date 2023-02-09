@@ -19,5 +19,11 @@ return [
    'role' => 'Role',
    'save' => 'Simpan',
    'login_message' => 'Sudah memiliki akun? Klik di sini untuk masuk',
-   'register_message' => 'Belum memiliki akun? Klik di sini untuk registrasi'
+   'register_message' => 'Belum memiliki akun? Klik di sini untuk registrasi',
+   'delete' => 'Hapus',
+   'checkout' => 'Beli',
+   'in_cart' => 'Sudah di keranjang',
+   'buy_now' => 'Beli Sekarang',
+   'id' => "Indonesia",
+   'eng' => "Inggris",
 ];

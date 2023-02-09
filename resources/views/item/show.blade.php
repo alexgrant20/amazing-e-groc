@@ -17,7 +17,7 @@
                @csrf
                <input type="hidden" name="item_id" value="{{ $item->item_id }}">
                <button
-                  class="btn btn-lg btn-primary {{ !$isItemInCart ?: 'disabled' }}">{{ $isItemInCart ? _('Already in cart') : _('Buy Now') }}</button>
+                  class="btn btn-lg btn-primary {{ !$isItemInCart ?: 'disabled' }}">{{ $isItemInCart ? __('lang.in_cart') : __('lang.buy_now') }}</button>
             </form>
          </div>
       </div>
