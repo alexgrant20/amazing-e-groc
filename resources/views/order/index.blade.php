@@ -24,7 +24,7 @@
                @csrf
                @method('DELETE')
                <input type="hidden" name="item_id" value="{{ $order->item_id }}">
-               <button type="submit" class="btn btn-danger">Delete</button>
+               <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
             </form>
          </div>
 

@@ -38,15 +38,15 @@
 
       <div class="d-flex ml-auto gap-3 align-items-center">
          @if (@$account)
-            <a href="{{ route('logout') }}" class="btn btn-primary">{{ __('Logout') }}</a>
+            <a href="{{ route('logout') }}" class="btn btn-primary">{{ __('lang.logout') }}</a>
          @else
-            <a href="{{ route('register') }}" class="text-white text-decoration-none">{{ __('Register') }}</a>
-            <a href="{{ route('login') }}" class="btn btn-primary">{{ __('Login') }}</a>
+            <a href="{{ route('register') }}" class="text-white text-decoration-none">{{ __('lang.register') }}</a>
+            <a href="{{ route('login') }}" class="btn btn-primary">{{ __('lang.login') }}</a>
          @endif
       </div>
    </div>
 </header>
 <div class="bg-dark border-white border-top py-3">
-   <marquee class="text-white" direction="right">Hi vegero users👋 Go get your fresh vegatable right now!🥒
+   <marquee class="text-white" direction="right">{{ __('lang.banner') }}
    </marquee>
 </div>
