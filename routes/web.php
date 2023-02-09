@@ -16,29 +16,29 @@ Route::middleware('guest')->controller(AccountController::class)->group(function
    Route::post('/login', 'authenticate')->name('authenticate');
 });
 
-Route::controller(ItemController::class)->name('item.')->group(function () {
-   // VIew all product
-   Route::get('/items', 'index')->name('index');
-
-   // View Product
-   Route::get('/item/{item}', 'show')->name('show');
-});
-Route::controller(OrderController::class)->name('order.')->prefix('/order')->group(function () {
-   // Add to cart
-   Route::post('', 'store')->name('store');
-
-   // View cart (only his id)
-   Route::get('', 'index')->name('index');
-
-   // Delete from cart
-   Route::delete('', 'destroy')->name('destroy');
-
-   // Checkout
-   Route::post('/checkout', 'checkout')->name('checkout');
-});
 Route::middleware('auth')->group(function () {
    Route::get('/logout', [AccountController::class, 'logout'])->name('logout');
 
+   Route::controller(ItemController::class)->name('item.')->group(function () {
+      // VIew all product
+      Route::get('/items', 'index')->name('index');
+
+      // View Product
+      Route::get('/item/{item}', 'show')->name('show');
+   });
+   Route::controller(OrderController::class)->name('order.')->prefix('/order')->group(function () {
+      // Add to cart
+      Route::post('', 'store')->name('store');
+
+      // View cart (only his id)
+      Route::get('', 'index')->name('index');
+
+      // Delete from cart
+      Route::delete('', 'destroy')->name('destroy');
+
+      // Checkout
+      Route::post('/checkout', 'checkout')->name('checkout');
+   });
 
    Route::controller(AccountController::class)->name('account.')->prefix('account')->group(function () {
       Route::get('/edit', 'edit')->name('edit');

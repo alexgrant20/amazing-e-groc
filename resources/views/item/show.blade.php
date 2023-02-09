@@ -4,8 +4,7 @@
 
 @section('container')
    <div class="d-flex align-items-center shadow p-4 gap-5">
-      <img src="https://sahabatdapur.com/wp-content/uploads/2016/07/sawi-putih.jpg" alt="" width="200px"
-         height="200px" />
+      <img src="https://picsum.photos/600/600" alt="" width="200px" height="200px" />
       <div>
          <div class="fs-3 mb-3">Buah APel Buah tomat</div>
          <div class="fw-bold fs-2 text-primary mb-2">Rp. 10.000</div>

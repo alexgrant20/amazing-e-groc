@@ -16,10 +16,8 @@ class ItemController extends Controller
 
    public function show(Item $item)
    {
-      $id = $this->account;
-
       $isItemInCart = Order::where([
-         'account_id' => $id,
+         'account_id' => $this->account->account_id,
          'item_id' => $item->item_id
       ])->count();
 

@@ -5,11 +5,10 @@
 @section('container')
 
    <h2>Order</h2>
-   @foreach ($orders as $order)
+   @forelse ($orders as $order)
       <div class="row mb-3">
          <div class="col-md-3">
-            <img src="https://picsum.photos/seed/%22.$this-%3Efaker-%3Eunique()-%3Eword.%22/520/400/" alt=""
-               class="border-circle" width="125px" height="125px">
+            <img src="https://picsum.photos/600/600" alt="" class="border-circle" width="125px" height="125px">
          </div>
 
          <div class="col-md-3">
@@ -30,7 +29,16 @@
          </div>
 
       </div>
-   @endforeach
+   @empty
+      <h2 class="text-danger">{{ __('No item inside the cart!') }}</h2>
+   @endforelse
 
-
+   @if ($orders->count() > 0)
+      <div class="text-end">
+         <form action="{{ route('order.checkout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-warning text-white">{{ __('Checkout') }}</button>
+         </form>
+      </div>
+   @endif
 @endsection

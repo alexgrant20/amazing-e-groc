@@ -4,40 +4,45 @@
          Vegero
          <img src="{{ asset('images/totoro.png') }}" alt="" width="30px" height="30px" />
       </a>
-      <div>
-         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-               <li class="nav-item">
-                  <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
-                     href="{{ route('item.index') }}">
-                     {{ __('Home') }}
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link {{ Request::is('/order*') ? 'active' : '' }}" href="{{ route('order.index') }}">
-                     {{ __('Order') }}
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="#">
-                     {{ __('Profile') }}
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">
-                     {{ __('Account Maintenance') }}
-                  </a>
-               </li>
-            </ul>
+      @if (@$account)
+         <div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                        href="{{ route('item.index') }}">
+                        {{ __('Home') }}
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link {{ Request::is('/order*') ? 'active' : '' }}" href="{{ route('order.index') }}">
+                        {{ __('Order') }}
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="#">
+                        {{ __('Profile') }}
+                     </a>
+                  </li>
+                  @if ($account->hasRole('admin'))
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">
+                           {{ __('Account Maintenance') }}
+                        </a>
+                     </li>
+                  @endif
+               </ul>
+            </div>
          </div>
-      </div>
+      @endif
+
       <div class="d-flex ml-auto gap-3 align-items-center">
-         @auth
+         @if (@$account)
             <a href="{{ route('logout') }}" class="btn btn-primary">{{ __('Logout') }}</a>
          @else
             <a href="{{ route('register') }}" class="text-white text-decoration-none">{{ __('Register') }}</a>
             <a href="{{ route('login') }}" class="btn btn-primary">{{ __('Login') }}</a>
-         @endauth
+         @endif
       </div>
    </div>
 </header>

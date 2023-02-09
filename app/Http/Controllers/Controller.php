@@ -33,7 +33,7 @@ class Controller extends BaseController
          }
 
          $this->account = $account;
-         view()->share(compact('auth'));
+         view()->share(compact('account'));
 
          return $next($request);
       });

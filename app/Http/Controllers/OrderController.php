@@ -13,18 +13,17 @@ class OrderController extends Controller
          'item_id' => 'required'
       ]);
 
-      // $id = auth()->user()->id;
-      $id = 1;
+      $accountId = $this->account->account_id;
 
       $isItemInCart = Order::where([
-         'account_id' => $id,
+         'account_id' => $accountId,
          'item_id' => $request->item_id
       ])->count();
 
       if ($isItemInCart > 0) return to_route('index')->with('error-swal', "You only allowed to have 1 item");
 
       Order::create([
-         'account_id' => $id,
+         'account_id' => $accountId,
          'item_id' => $request->item_id
       ]);
 
@@ -33,9 +32,7 @@ class OrderController extends Controller
 
    public function index()
    {
-      $id = 1;
-
-      $orders = Order::where('account_id', $id)->get();
+      $orders = Order::where('account_id', $this->account->account_id)->get();
 
       return view('order.index', compact('orders'));
    }
@@ -46,11 +43,9 @@ class OrderController extends Controller
          'item_id' => 'required'
       ]);
 
-      $id = 1;
-
       Order::where([
          'item_id' => $request->item_id,
-         'account_id' => $id
+         'account_id' => $this->account->account_id
       ])->delete();
 
       return to_route('order.index')->with('success-swal', 'Item successfully deleted');
@@ -58,9 +53,7 @@ class OrderController extends Controller
 
    public function checkout()
    {
-      $id = 1;
-
-      Order::where('account_id', $id)->delete();
+      Order::where('account_id', $this->account->account_id)->delete();
 
       return to_route('order.index')->with('success-swal', 'Item successfully purchased');
    }
