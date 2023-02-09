@@ -16,10 +16,10 @@ return new class extends Migration
       $table->foreignId('gender_id')->constrained('gender', 'gender_id');
       $table->string('first_name', 25);
       $table->string('last_name', 25);
-      $table->string('email', 100);
+      $table->string('email', 100)->unique();
       $table->string('display_picture', 100);
       $table->string('password');
-      $table->string('remember_token');
+      $table->rememberToken();
       $table->timestamps();
       $table->softDeletes();
     });

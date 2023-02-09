@@ -11,9 +11,9 @@ Route::get('/', function () {
 
 Route::middleware('guest')->controller(AccountController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
-    Route::post('/sign-up', 'signUp')->name('sign-up');
-    Route::get('/login', 'register')->name('login');
-    Route::post('/sign-in', 'signIn')->name('sign-in');
+    Route::post('/register', 'createAccount')->name('create-account');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/login', 'authenticate')->name('authenticate');
 });
 
 Route::controller(ItemController::class)->name('item.')->group(function () {
@@ -23,7 +23,9 @@ Route::controller(ItemController::class)->name('item.')->group(function () {
     // View Product
     Route::get('/item/{item}', 'show')->name('show');
 });
+
 Route::middleware('auth')->group(function () {
+    Route::get('/logout', [AccountController::class, 'logout'])->name('logout');
 
     Route::controller(CartController::class)->name('cart.')->group(function () {
         // Add to cart

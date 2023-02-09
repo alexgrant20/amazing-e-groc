@@ -16,12 +16,12 @@ class RegisterRequest extends FormRequest
     return [
       'first_name' => 'required|max:25',
       'last_name' => 'required|max:25',
-      'email' => 'required|email',
+      'email' => 'required|email|unique:account,email',
       'role' => 'required|exists:role,role_id',
       'gender' => 'required|exists:gender,gender_id',
       'display_picture' => 'required|image',
-      'password' => 'required|min:8|regex:(?=[a-zA-Z]*[0-9])',
-      'confirm_password' => 'same:pasword|min:8|regex:(?=[a-zA-Z]*[0-9])',
+      'password' => 'required|min:8|regex:/(?=[a-zA-Z]*[0-9])/',
+      'password_confirmation' => 'required|same:password|min:8',
     ];
   }
 }

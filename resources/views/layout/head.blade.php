@@ -10,5 +10,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
    <title>{{ env('APP_NAME') }} - @yield('title') </title>
 </head>
