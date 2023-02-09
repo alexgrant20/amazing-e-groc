@@ -13,8 +13,8 @@
             @method('patch')
             @csrf
             <div class="row my-4">
-               <div class="col-md-3 d-flex justify-content-center">
-                     <img src="{{ asset($account->display_picture) }}" alt="" width="150px" height="200px">
+               <div class="col-md-3 d-flex justify-content-center align-items-center">
+                  <img src="{{ asset($account->display_picture) }}" alt="" width="150px" height="200px">
                </div>
 
                <div class="col-md">
@@ -96,7 +96,6 @@
                               <input type="password" name="password" id="password" class="form-control">
                            </div>
                         </div>
-
                      </div>
 
                      <div class="col-md-6">

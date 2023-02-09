@@ -20,7 +20,8 @@
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="{{ route('account.edit') }}">
+                     <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}"
+                        href="{{ route('account.edit') }}">
                         {{ __('lang.profile') }}
                      </a>
                   </li>
