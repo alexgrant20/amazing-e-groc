@@ -11,23 +11,23 @@
                   <li class="nav-item">
                      <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
                         href="{{ route('item.index') }}">
-                        {{ __('Home') }}
+                        {{ __('home') }}
                      </a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link {{ Request::is('/order*') ? 'active' : '' }}" href="{{ route('order.index') }}">
-                        {{ __('Order') }}
+                        {{ __('order') }}
                      </a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="{{ route('account.edit') }}">
-                        {{ __('Profile') }}
+                        {{ __('profile') }}
                      </a>
                   </li>
                   @if ($account->hasRole('admin'))
                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('account.index') }}">
-                           {{ __('Account Maintenance') }}
+                           {{ __('account_maintenance') }}
                         </a>
                      </li>
                   @endif
