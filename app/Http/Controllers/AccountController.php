@@ -76,7 +76,6 @@ class AccountController extends Controller
       return back()->with('loginError', 'Login Failed');
    }
 
-
    public function logout(Request $request)
    {
       $request->session()->invalidate();

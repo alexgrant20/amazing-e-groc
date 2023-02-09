@@ -27,16 +27,14 @@
             praesentium.
          </div>
 
-         @if ($isItemInCart == 0)
-            <div class="text-end">
-               <form action="{{ route('cart.store') }}" method="post">
-                  @csrf
-                  <input type="hidden" name="item_id" value="{{ $item->id }}">
-                  <button href="" class="btn btn-lg btn-primary">{{ _('Buy Now') }}</button>
-               </form>
-            </div>
-         @endif
-
+         <div class="text-end">
+            <form action="{{ route('order.store') }}" method="post">
+               @csrf
+               <input type="hidden" name="item_id" value="{{ $item->item_id }}">
+               <button
+                  class="btn btn-lg btn-primary {{ !$isItemInCart ?: 'disabled' }}">{{ $isItemInCart ? _('Already in cart') : _('Buy Now') }}</button>
+            </form>
+         </div>
       </div>
    </div>
 @endsection

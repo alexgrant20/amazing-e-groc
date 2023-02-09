@@ -8,16 +8,25 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="#">Home</a>
+                  <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                     href="{{ route('item.index') }}">
+                     {{ __('Home') }}
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link {{ Request::is('/cart') ? 'active' : '' }}" href="#">Cart</a>
+                  <a class="nav-link {{ Request::is('/order*') ? 'active' : '' }}" href="{{ route('order.index') }}">
+                     {{ __('Order') }}
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="#">Profile</a>
+                  <a class="nav-link {{ Request::is('/account*') ? 'active' : '' }}" href="#">
+                     {{ __('Profile') }}
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#">Account Maintenance</a>
+                  <a class="nav-link" href="#">
+                     {{ __('Account Maintenance') }}
+                  </a>
                </li>
             </ul>
          </div>

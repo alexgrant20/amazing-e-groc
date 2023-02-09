@@ -7,15 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  protected $primaryKey = 'item_id';
-  protected $table = 'item';
+    protected $primaryKey = 'item_id';
+    protected $table = 'item';
+    public $timestamps = false;
 
-  protected $guarded = ['item_id'];
+    protected $guarded = ['item_id'];
 
-  public function order()
-  {
-    return $this->belongsTo(Order::class, 'item_id', 'item_id');
-  }
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'item_id', 'item_id');
+    }
 }

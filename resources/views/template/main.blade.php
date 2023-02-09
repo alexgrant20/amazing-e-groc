@@ -3,7 +3,7 @@
 
 @include('layout.head')
 
-<body class="min-vh-100 pb-5">
+<body class="min-vh-100 pb-5 position-relative">
    @include('layout.header')
 
    <div class="container-fluid p-5">

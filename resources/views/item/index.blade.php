@@ -1,6 +1,6 @@
 @extends('template.main')
 
-@section('title', 'ITEMS')
+@section('title', 'Items')
 
 @section('container')
    <div class="grid-layout-5 mb-4">

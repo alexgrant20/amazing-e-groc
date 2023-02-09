@@ -7,24 +7,22 @@ use App\Models\Order;
 
 class ItemController extends Controller
 {
-    public function index()
-    {
-        $items = Item::orderBy('item_name')->paginate(10);
+   public function index()
+   {
+      $items = Item::orderBy('item_name')->paginate(10);
 
-        return view("item.index", compact('items'));
-    }
+      return view("item.index", compact('items'));
+   }
 
-    public function show(Item $item)
-    {
-        // $id = auth()->user()->id;
-        $id = 0;
+   public function show(Item $item)
+   {
+      $id = $this->account;
 
-        $isItemInCart = Order::where([
-            'account_id' => $id,
-            'item_id' => $item->id
-        ])->count();
+      $isItemInCart = Order::where([
+         'account_id' => $id,
+         'item_id' => $item->item_id
+      ])->count();
 
-
-        return view("item.show", compact('item', 'isItemInCart'));
-    }
+      return view("item.show", compact('item', 'isItemInCart'));
+   }
 }
