@@ -5,7 +5,7 @@
 @section('container')
    <div class="container my-3">
       <div class="d-flex justify-content-center my-4 w-100">
-         <h1 class="fw-bold fs-3">{{ __('profile') }}</h1>
+         <h1 class="fw-bold fs-3">{{ __('lang.profile') }}</h1>
       </div>
 
       <div class="border border-2 rounded-3 mb-3 p-4">
@@ -21,7 +21,7 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group mb-3 row">
-                           <label for="first_name" class="form-label">{{ __('first_name') }}</label>
+                           <label for="first_name" class="form-label">{{ __('lang.first_name') }}</label>
                            <div>
                               <input type="text" name="first_name" id="first_name" class="form-control"
                                  value="{{ old('first_name', $account->first_name) }}">
@@ -31,7 +31,7 @@
 
                      <div class="col-md-6">
                         <div class="form-group mb-3 row">
-                           <label for="last_name" class="form-label">{{ __('last_name') }}</label>
+                           <label for="last_name" class="form-label">{{ __('lang.last_name') }}</label>
                            <div>
                               <input type="text" name="last_name" id="last_name" class="form-control"
                                  value="{{ old('last_name', $account->last_name) }}">
@@ -43,7 +43,7 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group mb-3 row">
-                           <label for="gender" class="form-label">{{ __('gender') }}</label>
+                           <label for="gender" class="form-label">{{ __('lang.gender') }}</label>
                            <div>
                               <select name="gender" id="gender" aria-label="Default select example"
                                  class="form-select">
@@ -59,7 +59,7 @@
 
                      <div class="col-md-6">
                         <div class="form-group mb-3 row">
-                           <label for="role" class="form-label">{{ __('role') }}</label>
+                           <label for="role" class="form-label">{{ __('lang.role') }}</label>
                            <div>
                               {{ $account->role->role_name }}
                            </div>
@@ -70,7 +70,7 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group mb-3">
-                           <label for="email" class="form-label">{{ __('email') }}</label>
+                           <label for="email" class="form-label">{{ __('lang.email') }}</label>
                            <div>
                               <input type="text" name="email" id="email" class="form-control"
                                  value="{{ old('email', $account->email) }}">
@@ -80,7 +80,7 @@
 
                      <div class="col-md-6">
                         <div class="form-group mb-3">
-                           <label class="form-label need-hint" for="display_picture">{{ __('display_picture') }}</label>
+                           <label class="form-label need-hint" for="display_picture">{{ __('lang.display_picture') }}</label>
                            <div class="custom-file">
                               <input type="file" class="form-control" id="display_picture" name="display_picture">
                            </div>
@@ -91,7 +91,7 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group mb-3">
-                           <label for="password" class="form-label">{{ __('password') }}</label>
+                           <label for="password" class="form-label">{{ __('lang.password') }}</label>
                            <div>
                               <input type="password" name="password" id="password" class="form-control">
                            </div>
@@ -101,7 +101,7 @@
 
                      <div class="col-md-6">
                         <div class="form-group mb-3">
-                           <label for="password_confirmation" class="form-label">{{ __('confirm_password') }}</label>
+                           <label for="password_confirmation" class="form-label">{{ __('lang.confirm_password') }}</label>
                            <div>
                               <input type="password" name="password_confirmation" id="password_confirmation"
                                  class="form-control">
@@ -111,7 +111,7 @@
                   </div>
 
                   <div class="form-group d-flex justify-content-center mt-5">
-                     <button type="submit" class="btn btn-success px-4 py-2 fs-5">{{ __('save') }}</button>
+                     <button type="submit" class="btn btn-success px-4 py-2 fs-5">{{ __('lang.save') }}</button>
                   </div>
                </div>
             </div>
